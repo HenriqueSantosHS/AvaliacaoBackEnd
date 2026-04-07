@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Cadastro</h2>
+
+    <form>
+        <input type="text" placeholder="Usuário" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Senha" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <div class="links">
+        <a href="index.html">Voltar para login</a>
+    </div>
+</div>
+
+</body>
+</html>
