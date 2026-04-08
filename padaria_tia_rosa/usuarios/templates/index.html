@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Padaria Tia Rosa</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -13,18 +12,30 @@
     <h2>Padaria Tia Rosa</h2>
     <p>Faça seu login</p>
 
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: #22c55e; background: rgba(34, 197, 94, 0.1); padding: 8px; border-radius: 8px; font-size: 14px; margin-bottom: 10px;">
+                {{ message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
     <form method="POST">
-    {% csrf_token %}
+        {% csrf_token %}
 
         <input type="text" name="usuario" placeholder="Usuário" required>
         <input type="password" name="senha" placeholder="Senha" required>
 
         <button type="submit">Entrar</button>
+
+        {% if erro %}
+            <p style="color:red; margin-top: 10px;">{{ erro }}</p>
+        {% endif %}
     </form>
 
     <div class="links">
-        <a href="TelaCadastro.html">Cadastre-se</a>
-        <a href="TelaEsqueciSenha.html">Esqueci minha senha</a>
+        <a href="/cadastro/">Cadastre-se</a>
+        <a href="/recuperar-senha">Esqueci minha senha</a>
     </div>
 </div>
 

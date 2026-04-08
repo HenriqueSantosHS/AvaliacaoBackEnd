@@ -11,14 +11,19 @@
 <div class="login-box">
     <h2>Recuperar Senha</h2>
 
-    <form>
-        <input type="email" placeholder="Digite seu email" required>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Digite seu email" required>
 
         <button type="submit">Enviar</button>
     </form>
 
+        {% if erro %}
+        <p style="color:red;">{{ erro }}</p>
+        {% endif %}
+
     <div class="links">
-        <a href="index.html">Voltar para login</a>
+        <a href="/">Voltar para login</a>
     </div>
 </div>
 

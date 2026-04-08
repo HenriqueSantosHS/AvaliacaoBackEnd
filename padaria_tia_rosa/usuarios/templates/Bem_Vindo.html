@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-vindo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div class="login-box">
+        <h1>Bem-vindo, {{ user.username }}</h1>
+
+            <div class="links">
+                <button onclick="window.location.href='/'">Voltar</button>
+            </div>
+    </div>        
+</body>
+</html>

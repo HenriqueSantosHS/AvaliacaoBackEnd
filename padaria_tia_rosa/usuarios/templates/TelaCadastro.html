@@ -11,16 +11,22 @@
 <div class="login-box">
     <h2>Cadastro</h2>
 
-    <form>
-        <input type="text" placeholder="Usuário" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Senha" required>
+    <form method="POST">
+    {% csrf_token %}
+
+        <input type="text" name="usuario" placeholder="Usuário" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="senha" placeholder="Senha" required>
 
         <button type="submit">Cadastrar</button>
     </form>
 
+        {% if erro %}
+        <p style="color:red;">{{ erro }}</p>
+        {% endif %}
+
     <div class="links">
-        <a href="index.html">Voltar para login</a>
+        <a href="/">Voltar para login</a>
     </div>
 </div>
 

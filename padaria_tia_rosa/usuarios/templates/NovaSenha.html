@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Senha</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Nova Senha</h2>
+        <p>Defina uma senha para: <strong>{{ usuario }}</strong></p>
+
+        <form method="POST" action="{% url 'nova_senha' %}">
+            {% csrf_token %}
+            
+            <input type="hidden" name="usuario" value="{{ usuario }}">
+
+            <input type="password" name="senha" placeholder="Digite a nova senha" required>
+            
+            <button type="submit">Atualizar Senha</button>
+        </form>
+
+        <div class="links">
+            <a href="/">Cancelar e voltar</a>
+        </div>
+    </div>
+
+</body>
+</html>
